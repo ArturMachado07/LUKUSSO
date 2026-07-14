@@ -22,7 +22,7 @@ export default function MovieDetail() {
       setMovie({
         id: id || '1',
         title: 'Meu Semba',
-        description: 'Uma sinfonia urbana vibrante, embalada pelos ritmos da poesia rap, revela histórias de resiliência e dignidade inabaláveis ​​em meio à dura realidade do cotidiano dos trabalhadores de Luanda.',
+        description: 'Uma sinfonia urbana vibrante, embalada pelos ritmos da poesia rap, revela histórias de resiliência e dignidade inabaláveis em meio à dura realidade do cotidiano dos trabalhadores de Luanda.',
         poster: '/Meu_Semba_cover.webp',
         banner: '/capa1_home.jpeg',
         trailer: '/meu-semba-trailer.mp4',
@@ -70,30 +70,27 @@ export default function MovieDetail() {
       <Header />
 
       {/* Banner com vídeo de fundo */}
-      {/* Hero com trailer em background */}
-<div className="relative h-[70vh] overflow-hidden pt-20">
+      <div className="relative h-[70vh] overflow-hidden pt-20">
+        {movie.videoUrl ? (
+          <video
+            src={movie.videoUrl}
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={movie.banner}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : (
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${movie.banner})` }}
+          />
+        )}
 
-  {movie.videoUrl ? (
-    <video
-      src={movie.videoUrl}
-      autoPlay
-      muted
-      loop
-      playsInline
-      poster={movie.banner}
-      className="absolute inset-0 w-full h-full object-cover"
-    />
-  ) : (
-    <div
-      className="absolute inset-0 bg-cover bg-center"
-      style={{ backgroundImage: `url(${movie.banner})` }}
-    />
-  )}
-
-  {/* Gradientes para melhorar a leitura */}
-  <div className="absolute inset-0 bg-gradient-to-r from-lukusso-black via-lukusso-black/60 to-transparent" />
-
-  <div className="absolute inset-0 bg-gradient-to-t from-lukusso-black via-transparent to-transparent" />
+        {/* Gradientes para melhorar a leitura */}
+        <div className="absolute inset-0 bg-gradient-to-r from-lukusso-black via-lukusso-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-lukusso-black via-transparent to-transparent" />
 
         <div className="relative z-10 flex items-end h-full pb-20">
           <div className="container mx-auto px-4">
@@ -139,18 +136,16 @@ export default function MovieDetail() {
                     Assistir Agora
                   </button>
 
-                  {isAuthenticated && (
-                    <button
-                      onClick={() => toggleFavorite(movie.id)}
-                      className="p-4 rounded-full border-2 border-gray-500 hover:border-lukusso-gold transition-colors"
-                    >
-                      {isFavorite ? (
-                        <Check size={24} className="text-lukusso-gold" />
-                      ) : (
-                        <Plus size={24} className="text-white" />
-                      )}
-                    </button>
-                  )}
+                  <button
+                    onClick={() => toggleFavorite(movie.id)}
+                    className="p-4 rounded-full border-2 border-gray-500 hover:border-lukusso-gold transition-colors"
+                  >
+                    {isFavorite ? (
+                      <Check size={24} className="text-lukusso-gold" />
+                    ) : (
+                      <Plus size={24} className="text-white" />
+                    )}
+                  </button>
                 </div>
               </motion.div>
             </div>

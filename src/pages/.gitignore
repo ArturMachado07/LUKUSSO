@@ -1,0 +1,18 @@
+# Dependências
+node_modules/
+
+# Cache do Vite
+.vite/
+
+# Builds
+dist/
+build/
+dist-electron/
+release/
+
+# Sistema macOS
+.DS_Store
+
+# Variáveis de ambiente
+.env
+.env.local
