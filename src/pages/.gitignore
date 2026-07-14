@@ -2,8 +2,5 @@ node_modules/
 .vite/
 dist/
 build/
-dist-electron/
-release/
 .DS_Store
 .env
-.env.local
