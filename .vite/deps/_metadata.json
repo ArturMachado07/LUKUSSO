@@ -1,0 +1,46 @@
+{
+  "hash": "932be8c7",
+  "configHash": "8c0f83b6",
+  "lockfileHash": "6f640dce",
+  "browserHash": "5c781ecf",
+  "optimized": {
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "7e477179",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "e5e241d3",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "81ae7d33",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "6938c31d",
+      "needsInterop": false
+    },
+    "react-hot-toast": {
+      "src": "../../node_modules/react-hot-toast/dist/index.mjs",
+      "file": "react-hot-toast.js",
+      "fileHash": "bd9ea936",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-REWQIYNF": {
+      "file": "chunk-REWQIYNF.js"
+    },
+    "chunk-CGIXMFOH": {
+      "file": "chunk-CGIXMFOH.js"
+    }
+  }
+}
