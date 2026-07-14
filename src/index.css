@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #080808;
+    color: #ffffff;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #171717;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #D4AF37;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b8942f;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-lukusso-gold text-lukusso-black font-semibold px-6 py-3 rounded-lg hover:bg-opacity-90 transition-all duration-300 flex items-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply bg-lukusso-gray-light text-white font-semibold px-6 py-3 rounded-lg hover:bg-opacity-80 transition-all duration-300 flex items-center gap-2;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-lukusso-gold/20;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-lukusso-gold to-yellow-500 bg-clip-text text-transparent;
+  }
+
+  .skeleton {
+    @apply animate-pulse bg-lukusso-gray-light rounded;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  .backdrop-blur-custom {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}

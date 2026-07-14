@@ -1,0 +1,54 @@
+{
+  "name": "lukusso-desktop",
+  "version": "1.0.0",
+    "type": "module",
+  "description": "LUKUSSO - Plataforma de Streaming Angolana",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:vite\" \"npm run dev:electron\"",
+    "dev:vite": "vite",
+    "dev:electron": "wait-on http://localhost:5173 && electron .",
+    "build": "npm run build:vite && npm run build:electron",
+    "build:vite": "tsc && vite build",
+    "build:electron": "tsc -p electron/tsconfig.json",
+    "start": "electron .",
+    "backend": "cd backend && npm run dev",
+    "db:generate": "cd backend && npx prisma generate",
+    "db:push": "cd backend && npx prisma db push",
+    "db:studio": "cd backend && npx prisma studio"
+  },
+  "keywords": [
+    "streaming",
+    "angola",
+    "cinema",
+    "electron",
+    "react"
+  ],
+  "author": "LUKUSSO",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "framer-motion": "^10.16.4",
+    "hls.js": "^1.4.12",
+    "lucide-react": "^0.294.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
+    "react-router-dom": "^6.20.0",
+    "zustand": "^4.4.7"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.4.16",
+    "concurrently": "^8.2.2",
+    "electron": "^43.1.0",
+    "electron-builder": "^26.15.3",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5.2.2",
+    "vite": "^7.0.0",
+    "wait-on": "^7.2.0"
+  }
+}
