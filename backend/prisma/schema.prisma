@@ -134,7 +134,7 @@ model Subscription {
 
 model Plan {
   id            String         @id @default(uuid())
-  name          String
+  name          String         @unique
   price         Float
   currency      String         @default("AOA")
   features      String[]
