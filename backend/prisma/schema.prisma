@@ -8,20 +8,21 @@ datasource db {
 }
 
 model User {
-  id            String         @id @default(uuid())
-  name          String
-  email         String         @unique
-  phone         String?
-  password      String
-  avatar        String?
-  role          String         @default("user")
-  createdAt     DateTime       @default(now())
-  updatedAt     DateTime       @updatedAt
-  subscription  Subscription?
-  favorites     Favorite[]
-  watchHistory  WatchHistory[]
-  reviews       Review[]
-  payments      Payment[]
+  id           String         @id @default(uuid())
+  name         String
+  email        String         @unique
+  phone        String?
+  password     String
+  avatar       String?
+  role         String         @default("user")
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  subscription Subscription?
+  favorites    Favorite[]
+  watchHistory WatchHistory[]
+  reviews      Review[]
+  payments     Payment[]
+  Profile      Profile?
 }
 
 model Profile {
@@ -35,76 +36,76 @@ model Profile {
 }
 
 model Movie {
-  id          String   @id @default(uuid())
-  title       String
-  description String
-  poster      String
-  banner      String
-  trailer     String?
-  videoUrl    String
-  director    String
-  cast        String[]
-  year        Int
-  country     String
-  language    String
-  subtitles   String[]
-  duration    Int
-  category    String
-  rating      Float    @default(0)
-  ageRating   String?
-  featured    Boolean  @default(false)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  favorites   Favorite[]
+  id           String         @id @default(uuid())
+  title        String
+  description  String
+  poster       String
+  banner       String
+  trailer      String?
+  videoUrl     String
+  director     String
+  cast         String[]
+  year         Int
+  country      String
+  language     String
+  subtitles    String[]
+  duration     Int
+  category     String
+  rating       Float          @default(0)
+  ageRating    String?
+  featured     Boolean        @default(false)
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  favorites    Favorite[]
   watchHistory WatchHistory[]
-  reviews     Review[]
+  reviews      Review[]
 }
 
 model Series {
-  id          String   @id @default(uuid())
-  title       String
-  description String
-  poster      String
-  banner      String
-  trailer     String?
-  director    String
-  cast        String[]
-  year        Int
-  country     String
-  language    String
-  subtitles   String[]
-  categories  String[]
-  rating      Float    @default(0)
-  featured    Boolean  @default(false)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  seasons     Season[]
-  favorites   Favorite[]
+  id           String         @id @default(uuid())
+  title        String
+  description  String
+  poster       String
+  banner       String
+  trailer      String?
+  director     String
+  cast         String[]
+  year         Int
+  country      String
+  language     String
+  subtitles    String[]
+  categories   String[]
+  rating       Float          @default(0)
+  featured     Boolean        @default(false)
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  seasons      Season[]
+  favorites    Favorite[]
   watchHistory WatchHistory[]
-  reviews     Review[]
+  reviews      Review[]
 }
 
 model Season {
-  id        String    @id @default(uuid())
-  seriesId  String
-  series    Series    @relation(fields: [seriesId], references: [id], onDelete: Cascade)
+  id           String    @id @default(uuid())
+  seriesId     String
+  series       Series    @relation(fields: [seriesId], references: [id], onDelete: Cascade)
   seasonNumber Int
-  episodes  Episode[]
-  createdAt DateTime  @default(now())
+  episodes     Episode[]
+  createdAt    DateTime  @default(now())
 }
 
 model Episode {
-  id          String   @id @default(uuid())
-  seasonId    String
-  season      Season   @relation(fields: [seasonId], references: [id], onDelete: Cascade)
+  id            String         @id @default(uuid())
+  seasonId      String
+  season        Season         @relation(fields: [seasonId], references: [id], onDelete: Cascade)
   episodeNumber Int
-  title       String
-  description String
-  duration    Int
-  videoUrl    String
-  thumbnail   String?
-  createdAt   DateTime @default(now())
-  watchHistory WatchHistory[]
+  title         String
+  description   String
+  duration      Int
+  videoUrl      String
+  thumbnail     String?
+  createdAt     DateTime       @default(now())
+  watchHistory  WatchHistory[]
 }
 
 model Category {
@@ -117,31 +118,31 @@ model Category {
 }
 
 model Subscription {
-  id          String   @id @default(uuid())
-  userId      String   @unique
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  planId      String
-  plan        Plan     @relation(fields: [planId], references: [id])
-  status      String   @default("active")
-  startDate   DateTime @default(now())
-  endDate     DateTime
-  autoRenew   Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  payments    Payment[]
+  id        String    @id @default(uuid())
+  userId    String    @unique
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  planId    String
+  plan      Plan      @relation(fields: [planId], references: [id])
+  status    String    @default("active")
+  startDate DateTime  @default(now())
+  endDate   DateTime
+  autoRenew Boolean   @default(true)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  payments  Payment[]
 }
 
 model Plan {
-  id           String         @id @default(uuid())
-  name         String
-  price        Float
-  currency     String         @default("AOA")
-  features     String[]
-  maxDevices   Int
-  maxQuality   String
-  popular      Boolean        @default(false)
+  id            String         @id @default(uuid())
+  name          String
+  price         Float
+  currency      String         @default("AOA")
+  features      String[]
+  maxDevices    Int
+  maxQuality    String
+  popular       Boolean        @default(false)
   subscriptions Subscription[]
-  createdAt    DateTime       @default(now())
+  createdAt     DateTime       @default(now())
 }
 
 model Payment {
@@ -160,18 +161,18 @@ model Payment {
 }
 
 model WatchHistory {
-  id          String   @id @default(uuid())
-  userId      String
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  movieId     String?
-  movie       Movie?   @relation(fields: [movieId], references: [id], onDelete: Cascade)
-  seriesId    String?
-  series      Series?  @relation(fields: [seriesId], references: [id], onDelete: Cascade)
-  episodeId   String?
-  episode     Episode? @relation(fields: [episodeId], references: [id], onDelete: Cascade)
-  progress    Float    @default(0)
-  duration    Int      @default(0)
-  watchedAt   DateTime @default(now())
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  movieId   String?
+  movie     Movie?   @relation(fields: [movieId], references: [id], onDelete: Cascade)
+  seriesId  String?
+  series    Series?  @relation(fields: [seriesId], references: [id], onDelete: Cascade)
+  episodeId String?
+  episode   Episode? @relation(fields: [episodeId], references: [id], onDelete: Cascade)
+  progress  Float    @default(0)
+  duration  Int      @default(0)
+  watchedAt DateTime @default(now())
 }
 
 model Favorite {
