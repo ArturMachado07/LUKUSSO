@@ -34,7 +34,7 @@ export default function Subscription() {
   ]
 
   return (
-    <div className="min-h-screen bg-lukusso-black">
+    <div className="min-h-screen bg-lukusso-black pt-20">
       <Header />
 
       <div className="container mx-auto px-4 py-12">
@@ -134,28 +134,28 @@ export default function Subscription() {
             </h2>
             <div className="flex flex-wrap items-center justify-center gap-8">
               <div className="text-center">
-                <div className="w-24 h-16 bg-lukusso-gray-light rounded-lg flex items-center justify-center mb-2">
-                  <span className="text-lukusso-gold font-bold text-sm">MULTICAIXA</span>
+                <div className="w-24 h-16 bg-lukusso-gray-light rounded-lg flex items-center justify-center mb-2 overflow-hidden">
+                  <img src="/logos/express.png" alt="Multicaixa Express" className="max-w-full max-h-full object-contain" />
                 </div>
-                <p className="text-xs text-gray-400">Express</p>
+                <p className="text-xs text-gray-400">Multicaixa Express</p>
               </div>
               <div className="text-center">
-                <div className="w-24 h-16 bg-lukusso-gray-light rounded-lg flex items-center justify-center mb-2">
-                  <span className="text-lukusso-gold font-bold text-sm">PAYPAY</span>
+                <div className="w-24 h-16 bg-lukusso-gray-light rounded-lg flex items-center justify-center mb-2 overflow-hidden">
+                  <img src="/logos/paypay.png" alt="PayPay Africa" className="max-w-full max-h-full object-contain" />
                 </div>
-                <p className="text-xs text-gray-400">Africa</p>
+                <p className="text-xs text-gray-400">PayPay Africa</p>
               </div>
               <div className="text-center">
-                <div className="w-24 h-16 bg-lukusso-gray-light rounded-lg flex items-center justify-center mb-2">
-                  <span className="text-lukusso-gold font-bold text-sm">VISA</span>
+                <div className="w-24 h-16 bg-lukusso-gray-light rounded-lg flex items-center justify-center mb-2 overflow-hidden">
+                  <img src="/logos/visa.png" alt="Visa" className="max-w-full max-h-full object-contain" />
                 </div>
-                <p className="text-xs text-gray-400">Cartão</p>
+                <p className="text-xs text-gray-400">Visa</p>
               </div>
               <div className="text-center">
-                <div className="w-24 h-16 bg-lukusso-gray-light rounded-lg flex items-center justify-center mb-2">
-                  <span className="text-lukusso-gold font-bold text-sm">MBWAY</span>
+                <div className="w-24 h-16 bg-lukusso-gray-light rounded-lg flex items-center justify-center mb-2 overflow-hidden">
+                  <img src="/logos/mbway.png" alt="MBWay" className="max-w-full max-h-full object-contain" />
                 </div>
-                <p className="text-xs text-gray-400">Mobile</p>
+                <p className="text-xs text-gray-400">MBWay</p>
               </div>
             </div>
           </div>

@@ -36,7 +36,7 @@ export default function MyList() {
   }
 
   return (
-    <div className="min-h-screen bg-lukusso-black">
+    <div className="min-h-screen bg-lukusso-black pt-20">
       <Header />
 
       <div className="container mx-auto px-4 py-12">

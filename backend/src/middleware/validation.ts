@@ -42,6 +42,7 @@ export const movieSchema = Joi.object({
   duration: Joi.number().integer().min(1).required(),
   category: Joi.string().required(),
   rating: Joi.number().min(0).max(5).default(0),
+  ageRating: Joi.string().valid('3+', '12+', '16+', '18+').optional(),
   featured: Joi.boolean().default(false),
 })
 

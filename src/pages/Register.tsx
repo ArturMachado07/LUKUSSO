@@ -41,9 +41,9 @@ export default function Register() {
     <div className="min-h-screen bg-lukusso-black flex items-center justify-center relative overflow-hidden">
       {/* Background */}
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-20"
+        className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: 'url(https://via.placeholder.com/1920x1080/080808/D4AF37?text=LUKUSSO)',
+          backgroundImage: 'url(/tela-login.png)',
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-lukusso-black via-lukusso-black/80 to-lukusso-black/60" />

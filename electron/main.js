@@ -16,7 +16,6 @@ function createWindow() {
     }
   })
 
-  win.loadURL('http://localhost:5176')
 }
 
 app.whenReady().then(() => {

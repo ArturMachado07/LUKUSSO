@@ -51,6 +51,7 @@ model Movie {
   duration    Int
   category    String
   rating      Float    @default(0)
+  ageRating   String?
   featured    Boolean  @default(false)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

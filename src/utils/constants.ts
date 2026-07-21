@@ -7,11 +7,14 @@ export const COLORS = {
 }
 
 export const CATEGORIES = [
+  'Drama',
+  'Documentário',
+  'Horror',
+  'Ação',
+  'Biografia',
   'Cinema Nacional',
   'Histórias de Angola',
   'Música Angolana',
-  'Documentários',
-  'Biografias',
   'Talentos Emergentes',
 ]
 

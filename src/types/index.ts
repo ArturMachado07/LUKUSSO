@@ -1,6 +1,7 @@
 export interface Movie {
   id: string
   title: string
+  slug: string
   description: string
   poster: string
   banner: string
@@ -15,6 +16,7 @@ export interface Movie {
   duration: number
   category: string
   rating: number
+  ageRating: '3+' | '12+' | '16+' | '18+'
   featured: boolean
   createdAt: string
 }
@@ -112,13 +114,22 @@ export interface Payment {
 
 export interface WatchHistory {
   id: string
-  userId: string
+  userId?: string
   movieId?: string
   seriesId?: string
   episodeId?: string
   progress: number
   duration: number
   watchedAt: string
+}
+
+export interface UserPreferences {
+  emailNotifications: boolean
+  pushNotifications: boolean
+  autoplay: boolean
+  profilePublic: boolean
+  activityVisible: boolean
+  language: 'pt' | 'en' | 'fr'
 }
 
 export interface Favorite {

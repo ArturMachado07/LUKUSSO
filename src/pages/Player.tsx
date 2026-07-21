@@ -162,26 +162,26 @@ export default function Player() {
 
       <div
         ref={containerRef}
-        className="relative w-full h-screen bg-black group"
+        className="relative w-full h-[calc(100vh-6rem)] bg-black group"
         onMouseEnter={() => setShowControls(true)}
         onMouseLeave={() => isPlaying && setShowControls(false)}
       >
-        {/* Video */}
-        <video
-          ref={videoRef}
-          className="w-full h-full"
-          onTimeUpdate={handleTimeUpdate}
-          onLoadedMetadata={handleLoadedMetadata}
-          onPlay={() => setIsPlaying(true)}
-          onPause={() => setIsPlaying(false)}
-        />
+          {/* Video */}
+          <video
+            ref={videoRef}
+            className="w-full h-full"
+            onTimeUpdate={handleTimeUpdate}
+            onLoadedMetadata={handleLoadedMetadata}
+            onPlay={() => setIsPlaying(true)}
+            onPause={() => setIsPlaying(false)}
+          />
 
-        {/* Controls Overlay */}
-        <div
-          className={`absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40 transition-opacity duration-300 ${
-            showControls ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
+          {/* Controls Overlay */}
+          <div
+            className={`absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40 transition-opacity duration-300 ${
+              showControls ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
           {/* Top Bar */}
           <div className="absolute top-0 left-0 right-0 p-6 flex items-center justify-between">
             <Link to="/home" className="flex items-center gap-2 text-white hover:text-lukusso-gold transition-colors">

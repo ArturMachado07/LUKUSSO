@@ -1,15 +1,16 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Play, Plus, Check, Star, Clock, Calendar, Globe } from 'lucide-react'
 import Header from '@/components/Header'
 import { Series } from '@/types'
+import { getPersonPath } from '@/services/people'
 
 export default function SeriesDetail() {
   const { id } = useParams<{ id: string }>()
   const [series, setSeries] = useState<Series | null>(null)
 
-  useState(() => {
+  useEffect(() => {
     // Mock data
     setSeries({
       id: id || 's1',
@@ -58,7 +59,7 @@ export default function SeriesDetail() {
       featured: true,
       createdAt: new Date().toISOString(),
     })
-  })
+  }, [id])
 
   if (!series) {
     return (
@@ -72,7 +73,7 @@ export default function SeriesDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-lukusso-black">
+    <div className="min-h-screen bg-lukusso-black pt-20">
       <Header />
 
       {/* Banner */}
@@ -190,6 +191,42 @@ export default function SeriesDetail() {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Detalhes da Série */}
+      <div className="container mx-auto px-4 pb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h3 className="text-lukusso-gold font-semibold mb-2" style={{ fontFamily: 'Manrope, sans-serif' }}>
+              Realizador
+            </h3>
+            <Link
+              to={getPersonPath(series.director, 'director')}
+              className="text-gray-300 hover:text-lukusso-gold transition-colors"
+              style={{ fontFamily: 'Manrope, sans-serif' }}
+            >
+              {series.director}
+            </Link>
+          </div>
+
+          <div>
+            <h3 className="text-lukusso-gold font-semibold mb-2" style={{ fontFamily: 'Manrope, sans-serif' }}>
+              Elenco
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {series.cast.map((actor, idx) => (
+                <Link
+                  key={idx}
+                  to={getPersonPath(actor, 'actor')}
+                  className="px-3 py-1 bg-lukusso-gray rounded-full text-sm text-gray-300 hover:bg-lukusso-gray-light hover:text-lukusso-gold transition-colors"
+                  style={{ fontFamily: 'Manrope, sans-serif' }}
+                >
+                  {actor}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
